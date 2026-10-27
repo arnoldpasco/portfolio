@@ -43,15 +43,28 @@
                 <x-social-links />
             </header>
 
-            {{-- RIGHT COLUMN: placeholder sections, replaced with real content in 2B and 2C --}}
+            {{-- RIGHT COLUMN: one block per section --}}
             <main class="pt-24 lg:w-1/2 lg:py-24">
-                @foreach ($navigationSections as $sectionId => $sectionTitle)
-                    <x-page-section :id="$sectionId" :title="$sectionTitle">
-                        <p>Placeholder text for the {{ $sectionTitle }} section. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </x-page-section>
-                @endforeach
+                <x-page-section id="about" title="About">
+                    @include('sections.about')
+                </x-page-section>
+
+                <x-page-section id="experience" title="Experience">
+                    @include('sections.experience')
+                </x-page-section>
+
+                <x-page-section id="skills" title="Skills">
+                    @include('sections.skills')
+                </x-page-section>
+
+                {{-- Projects and Contact are still placeholders; they are built in Phase 2C --}}
+                <x-page-section id="projects" title="Projects">
+                    <p>Placeholder for the Projects section (Phase 2C).</p>
+                </x-page-section>
+
+                <x-page-section id="contact" title="Contact">
+                    <p>Placeholder for the Contact section (Phase 2C).</p>
+                </x-page-section>
             </main>
 
         </div>
