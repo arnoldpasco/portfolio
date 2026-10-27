@@ -57,13 +57,12 @@
                     @include('sections.skills')
                 </x-page-section>
 
-                {{-- Projects and Contact are still placeholders; they are built in Phase 2C --}}
                 <x-page-section id="projects" title="Projects">
-                    <p>Placeholder for the Projects section (Phase 2C).</p>
+                    @include('sections.projects')
                 </x-page-section>
 
                 <x-page-section id="contact" title="Contact">
-                    <p>Placeholder for the Contact section (Phase 2C).</p>
+                    @include('sections.contact')
                 </x-page-section>
             </main>
 
