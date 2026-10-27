@@ -1,8 +1,8 @@
 <?php
 
+// Single public route: the one-page portfolio.
+
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::view('/', 'home')->name('home');
+Route::get('/', HomeController::class)->name('home');

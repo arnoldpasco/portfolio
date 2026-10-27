@@ -1,49 +1,9 @@
 {{-- Projects section content: hidden by default; the folder button slides the list open in place --}}
-{{-- TODO Phase 4: this placeholder data will come from the database instead --}}
-@php
-    // Three examples on purpose: one with both links, one with GitHub only, one with no links at all
-    $projects = [
-        [
-            'title' => 'Project One',
-            'summary' => 'A short, friendly sentence about what this project does and why it matters. Lorem ipsum dolor sit amet.',
-            'tags' => ['Laravel', 'MySQL', 'Alpine.js'],
-            'details' => [
-                'Longer description of the problem this project solves and who it was built for. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-                'What I did: planned the database, built the pages, and added the contact and login features.',
-            ],
-            'liveUrl' => 'https://example.com',
-            'githubUrl' => 'https://github.com/your-username/project-one',
-            'image' => null,
-        ],
-        [
-            'title' => 'Project Two',
-            'summary' => 'Another short summary. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
-            'tags' => ['PHP', 'Tailwind CSS'],
-            'details' => [
-                'This one has a GitHub link but no live site, so only one button is shown.',
-            ],
-            'liveUrl' => null,
-            'githubUrl' => 'https://github.com/your-username/project-two',
-            'image' => null,
-        ],
-        [
-            'title' => 'Project Three',
-            'summary' => 'A private or client project. Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
-            'tags' => ['JavaScript', 'REST APIs'],
-            'details' => [
-                'This one has no links at all, so no link buttons are shown. Add a screenshot and live link later if you can.',
-            ],
-            'liveUrl' => null,
-            'githubUrl' => null,
-            'image' => null,
-        ],
-    ];
-@endphp
 
 {{-- x-data: areProjectsVisible starts false, so the list is hidden when the page loads --}}
 <div x-data="{ areProjectsVisible: false }">
     <p>
-        I've built a few things I'm proud of. They're tucked away so the page stays calm — open the folder whenever you're curious.
+        I've built a few things I'm proud of. They're tucked away so the page stays calm &mdash; open the folder whenever you're curious.
     </p>
 
     {{-- @click flips the state. aria-controls points at the list this button opens --}}
@@ -72,13 +32,13 @@
         <ul class="group/list pt-10" aria-label="Projects">
             @foreach ($projects as $project)
                 <x-project-item
-                    :title="$project['title']"
-                    :summary="$project['summary']"
-                    :tags="$project['tags']"
-                    :details="$project['details']"
-                    :live-url="$project['liveUrl']"
-                    :github-url="$project['githubUrl']"
-                    :image="$project['image']"
+                    :title="$project->title"
+                    :summary="$project->summary"
+                    :tags="$project->tech_tags ?? []"
+                    :details="$project->details ?? []"
+                    :live-url="$project->live_url"
+                    :github-url="$project->github_url"
+                    :image="$project->image_path"
                 />
             @endforeach
         </ul>

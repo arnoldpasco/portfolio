@@ -1,12 +1,4 @@
 {{-- Skills section content: skills grouped under small headings --}}
-{{-- TODO Phase 4: this placeholder data will come from the database instead --}}
-@php
-    $skillGroups = [
-        'Frontend' => ['HTML', 'CSS', 'Tailwind CSS', 'JavaScript', 'Alpine.js'],
-        'Backend' => ['PHP', 'Laravel', 'MySQL', 'REST APIs'],
-        'Tools' => ['Git', 'GitHub', 'Composer', 'Linux'],
-    ];
-@endphp
 
 <div class="space-y-8">
     @foreach ($skillGroups as $groupName => $groupSkills)
@@ -16,8 +8,8 @@
             </h3>
 
             <ul class="flex flex-wrap gap-2" aria-label="{{ $groupName }} skills">
-                @foreach ($groupSkills as $skillName)
-                    <x-tag-chip>{{ $skillName }}</x-tag-chip>
+                @foreach ($groupSkills as $skill)
+                    <x-tag-chip>{{ $skill->name }}</x-tag-chip>
                 @endforeach
             </ul>
         </div>
