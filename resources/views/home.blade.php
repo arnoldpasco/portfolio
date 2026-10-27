@@ -8,6 +8,13 @@
         'projects' => 'Projects',
         'contact' => 'Contact',
     ];
+
+    // Phrases the intro tagline types and erases in turn (placeholders until you pick your own)
+    $taglinePhrases = [
+        'I build web apps people actually enjoy using.',
+        'I turn messy requirements into clean Laravel code.',
+        'I build this with the help of AI tools, but I\'m still the one in charge.',
+    ];
 @endphp
 
 <x-layouts.app title="Your Name | Portfolio">
@@ -18,15 +25,14 @@
             <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
                 <div>
                     <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl dark:text-slate-100">
-                        Your Name
+                        Arnold Pasco
                     </h1>
-                    <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-800 sm:text-xl dark:text-slate-200">
-                        Your Role Here
+                    <h2 class="mt-3 text-md font-light tracking-tight text-slate-800 sm:text-xl dark:text-slate-200">
+                        Systems Analyst | Web Developer | IT Support
                     </h2>
-                    {{-- Phase 3 turns this tagline into a typing effect --}}
-                    <p class="mt-4 max-w-xs leading-normal">
-                        One friendly line about what you build and who you build it for.
-                    </p>
+
+                    {{-- Typing tagline (Phase 3A): types and erases the phrases above --}}
+                    <x-typing-tagline :phrases="$taglinePhrases" />
 
                     <x-section-nav :sections="$navigationSections" />
 

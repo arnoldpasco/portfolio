@@ -25,6 +25,53 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ---------- Cursor spotlight (Phase 3A) ---------- */
+
+/* Placeholder glow colors; the real palette is chosen in the Polish phase */
+:root {
+    --spotlight-color: rgba(59, 130, 246, 0.1);
+}
+
+:root.dark {
+    --spotlight-color: rgba(29, 78, 216, 0.15);
+}
+
+/* A fixed layer covering the screen, painted as a soft circle centered on the mouse.
+   pointer-events: none lets every click and hover pass straight through it. */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: radial-gradient(600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+            var(--spotlight-color),
+            transparent 80%);
+}
+
+/* JavaScript adds this class on the first mouse move, which fades the glow in */
+html.spotlight-active body::before {
+    opacity: 1;
+}
+
+/* ---------- Typing caret (Phase 3A) ---------- */
+
+.typing-caret {
+    margin-left: 1px;
+    font-weight: 300;
+    animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -35,5 +82,15 @@ html {
     *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
+    }
+
+    /* A 0.01ms infinite blink would flicker, so the caret is simply shown steady */
+    .typing-caret {
+        animation: none;
+    }
+
+    /* No moving glow at all (the JavaScript also refuses to start) */
+    body::before {
+        display: none;
     }
 }
