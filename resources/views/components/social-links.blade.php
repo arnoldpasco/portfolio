@@ -1,15 +1,8 @@
-{{-- Row of social icon links shown at the bottom of the left column --}}
-{{-- TODO: replace the placeholder URLs with your real profiles --}}
-@php
-    $socialLinks = [
-        'GitHub' => 'https://github.com/your-username',
-        'LinkedIn' => 'https://www.linkedin.com/in/your-username',
-        'Email' => 'mailto:you@example.com',
-    ];
-@endphp
+{{-- Row of social icon links shown at the bottom of the left column; $links is label => URL --}}
+@props(['links'])
 
 <ul class="mt-8 flex items-center gap-5 lg:mt-0" aria-label="Social media">
-    @foreach ($socialLinks as $socialName => $socialUrl)
+    @foreach ($links as $socialName => $socialUrl)
         <li>
             <a
                 href="{{ $socialUrl }}"
@@ -28,7 +21,7 @@
                     </svg>
                 @else
                     <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
                 @endif
             </a>
