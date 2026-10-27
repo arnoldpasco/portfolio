@@ -53,14 +53,16 @@
                 class="block w-full text-left"
             >
                 <span class="flex items-start justify-between gap-4">
-                    <span class="font-medium leading-snug text-slate-900 dark:text-slate-200">
+                    {{-- Title takes the accent color while the project is hovered (desktop only) --}}
+                    <span class="font-medium leading-snug text-slate-900 transition-colors duration-300 motion-reduce:transition-none lg:group-hover/item:text-(--accent-color) dark:text-slate-200">
                         {{ $title }}
                     </span>
 
-                    {{-- Arrow turns upside down while the project is open --}}
+                    {{-- Arrow turns upside down while the project is open.
+                         While closed, it nudges down a little when the project is hovered --}}
                     <svg
                         class="mt-1 size-4 shrink-0 text-slate-500 transition-transform duration-300 motion-reduce:transition-none"
-                        :class="isOpen ? 'rotate-180' : ''"
+                        :class="isOpen ? 'rotate-180' : 'lg:group-hover/item:translate-y-0.5'"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
                     >
                         <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -82,7 +84,8 @@
             </div>
 
             {{-- Links sit OUTSIDE the toggle button (a link inside a button is invalid HTML).
-                 A link is only drawn when its URL is filled in --}}
+                 A link is only drawn when its URL is filled in.
+                 The text span gets a sliding underline (.link-underline in app.css); the arrow nudges up and right --}}
             @if ($liveUrl || $githubUrl)
                 <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium" aria-label="Project links">
                     @if ($liveUrl)
@@ -91,10 +94,10 @@
                                 href="{{ $liveUrl }}"
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                class="group/link inline-flex items-center gap-1 text-slate-900 hover:text-slate-600 dark:text-slate-200 dark:hover:text-slate-400"
+                                class="group/link inline-flex items-center gap-1 text-slate-900 transition-colors hover:text-(--accent-color) focus-visible:text-(--accent-color) dark:text-slate-200"
                             >
-                                Live site
-                                <span class="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true">↗</span>
+                                <span class="link-underline">Live site</span>
+                                <span class="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true">&#8599;</span>
                             </a>
                         </li>
                     @endif
@@ -105,10 +108,10 @@
                                 href="{{ $githubUrl }}"
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                class="group/link inline-flex items-center gap-1 text-slate-900 hover:text-slate-600 dark:text-slate-200 dark:hover:text-slate-400"
+                                class="group/link inline-flex items-center gap-1 text-slate-900 transition-colors hover:text-(--accent-color) focus-visible:text-(--accent-color) dark:text-slate-200"
                             >
-                                GitHub
-                                <span class="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true">↗</span>
+                                <span class="link-underline">GitHub</span>
+                                <span class="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true">&#8599;</span>
                             </a>
                         </li>
                     @endif

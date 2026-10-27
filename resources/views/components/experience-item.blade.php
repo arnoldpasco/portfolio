@@ -36,14 +36,16 @@
                 class="block w-full text-left"
             >
                 <span class="flex items-start justify-between gap-4">
-                    <span class="font-medium leading-snug text-slate-900 dark:text-slate-200">
-                        {{ $jobTitle }} · {{ $company }}
+                    {{-- Title takes the accent color while the row is hovered (desktop only) --}}
+                    <span class="font-medium leading-snug text-slate-900 transition-colors duration-300 motion-reduce:transition-none lg:group-hover/item:text-(--accent-color) dark:text-slate-200">
+                        {{ $jobTitle }} &middot; {{ $company }}
                     </span>
 
-                    {{-- Arrow turns upside down while the row is open (:class adds rotate-180 when isOpen) --}}
+                    {{-- Arrow turns upside down while the row is open (:class adds rotate-180 when isOpen).
+                         While closed, it nudges down a little when the row is hovered, as a hint that it opens --}}
                     <svg
                         class="mt-1 size-4 shrink-0 text-slate-500 transition-transform duration-300 motion-reduce:transition-none"
-                        :class="isOpen ? 'rotate-180' : ''"
+                        :class="isOpen ? 'rotate-180' : 'lg:group-hover/item:translate-y-0.5'"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
                     >
                         <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
