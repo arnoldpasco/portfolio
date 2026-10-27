@@ -70,6 +70,23 @@ html.spotlight-active body::before {
     }
 }
 
+/* ---------- Scroll reveal (Phase 3B) ---------- */
+
+/* JavaScript adds "reveal" to below-the-fold sections; this sets how the fade plays */
+.reveal {
+    transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out;
+}
+
+/* The hidden starting state: invisible and nudged down a little.
+   Removing this class makes the element glide up into place.
+   No transform is left behind afterwards, so sticky and fixed children are not affected. */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(1.5rem);
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -92,5 +109,11 @@ html.spotlight-active body::before {
     /* No moving glow at all (the JavaScript also refuses to start) */
     body::before {
         display: none;
+    }
+
+    /* Safety net: even if the reveal script hid something, show it */
+    .reveal-hidden {
+        opacity: 1;
+        transform: none;
     }
 }

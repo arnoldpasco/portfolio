@@ -3,7 +3,7 @@
 // The "reading line": a section counts as active once its top edge reaches this many
 // pixels from the top of the screen. It sits just below where a nav click lands a section
 // (the sections use scroll-mt-24 = 96px), so a clicked link always highlights itself.
-const READING_LINE_FROM_TOP_IN_PIXELS = 140;
+const READING_LINE_FROM_TOP_IN_PIXELS = 100;
 
 export default (sectionIds) => ({
     // The section currently highlighted in the nav (starts with the first one)
