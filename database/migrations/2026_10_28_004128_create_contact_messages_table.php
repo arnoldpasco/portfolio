@@ -1,0 +1,30 @@
+<?php
+
+// Creates the contact_messages table: every message sent through the contact form is saved here.
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('contact_messages', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
+            // 45 characters is enough for the longest IPv6 address
+            $table->string('ip_address', 45)->nullable();
+            // null means unread; the Phase 7 admin inbox will fill it in
+            $table->timestamp('read_at')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('contact_messages');
+    }
+};
