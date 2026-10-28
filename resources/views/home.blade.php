@@ -10,7 +10,11 @@
     ];
 @endphp
 
-<x-layouts.app :title="$siteSetting->name . ' | Portfolio'">
+{{-- theme-css carries the palette colors saved in the admin (empty = use the defaults in app.css) --}}
+<x-layouts.app
+    :title="$siteSetting->name . ' | Portfolio'"
+    :theme-css="$siteSetting->theme_css_overrides"
+>
     <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div class="lg:flex lg:justify-between lg:gap-4">
 
@@ -29,7 +33,7 @@
 
                     <x-section-nav :sections="$navigationSections" />
 
-                    {{-- TODO Phase 5: point this link to the real resume download route --}}
+                    {{-- Downloads the resume PDF from private storage (Phase 5B) --}}
                     <a
                         href="{{ route('resume.download') }}"
                         class="group mt-10 inline-flex items-center gap-2 rounded-md border border-slate-400 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"

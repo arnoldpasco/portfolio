@@ -1,5 +1,5 @@
-{{-- Base layout: wraps every page with the <head>, dark mode setup, and the theme toggle --}}
-@props(['title' => null, 'description' => 'Personal portfolio website.'])
+{{-- Base layout: wraps every page with the <head>, dark mode setup, admin palette overrides and the theme toggle --}}
+@props(['title' => null, 'description' => 'Personal portfolio website.', 'themeCss' => null])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -22,9 +22,16 @@
     </script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Palette colors saved in the admin. The CSS is built only from validated #RRGGBB values
+         in the model, so printing it unescaped is safe. Placed after @vite so it wins over the defaults. --}}
+    @if ($themeCss)
+        <style>{!! $themeCss !!}</style>
+    @endif
 </head>
 
-<body class="bg-white text-slate-700 antialiased dark:bg-slate-900 dark:text-slate-400">
+{{-- Colors come from CSS variables (see app.css) so the admin can change them --}}
+<body class="bg-(color:--page-background) text-(color:--page-text) antialiased">
     {{-- Toggle stays in the top-right corner while scrolling --}}
     <div class="fixed right-4 top-4 z-50">
         <x-theme-toggle />

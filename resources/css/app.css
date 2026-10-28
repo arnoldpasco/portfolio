@@ -25,18 +25,29 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ---------- Placeholder colors (replaced in the Polish phase) ---------- */
+/* ---------- Palette (Phase 6A) ---------- */
 
-/* --accent-color is the hover color for titles and links; --spotlight-color is the cursor glow.
-   Both change per theme here, so changing the palette later means editing only these lines. */
+/* These are the DEFAULT colors. The admin can override them: the layout prints a small <style>
+   block built from site_settings.theme_colors (see SiteSetting::theme_css_overrides), and that
+   block wins over the values here. If nothing is saved, the site uses exactly these.
+   --accent-color     hover color for titles and links
+   --spotlight-base   color of the cursor glow (its strength is set below)
+   --page-background  page background
+   --page-text        main body text */
 :root {
     --accent-color: #0d9488;
-    --spotlight-color: rgba(59, 130, 246, 0.1);
+    --spotlight-base: #3b82f6;
+    --spotlight-color: color-mix(in srgb, var(--spotlight-base) 10%, transparent);
+    --page-background: #ffffff;
+    --page-text: #334155;
 }
 
 :root.dark {
     --accent-color: #5eead4;
-    --spotlight-color: rgba(29, 78, 216, 0.15);
+    --spotlight-base: #1d4ed8;
+    --spotlight-color: color-mix(in srgb, var(--spotlight-base) 15%, transparent);
+    --page-background: #0f172a;
+    --page-text: #94a3b8;
 }
 
 /* ---------- Cursor spotlight (Phase 3A) ---------- */
