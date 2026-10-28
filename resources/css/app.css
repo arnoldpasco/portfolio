@@ -1,5 +1,9 @@
-/* Global styles: Tailwind setup, class-based dark mode, and small helpers */
+/* Global styles: Tailwind setup, bundled font, class-based dark mode, and small helpers */
 @import 'tailwindcss';
+
+/* Inter (variable font) installed with npm, so the font files come from our own site and not from Google.
+   Browsers only download the character sets a page actually uses. */
+@import '@fontsource-variable/inter';
 
 /* Tell Tailwind where to look for the classes we use */
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -11,8 +15,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    /* Placeholder font; the real fonts are chosen in the Polish phase */
-    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    /* Inter first; the system fonts after it are the fallback while it loads (or if it fails) */
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Alpine hides elements with x-cloak until it has loaded, which prevents a flash of content */
