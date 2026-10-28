@@ -12,7 +12,7 @@
         @click="areProjectsVisible = !areProjectsVisible"
         :aria-expanded="areProjectsVisible"
         aria-controls="project-list"
-        class="group mt-6 inline-flex items-center gap-3 rounded-md border border-slate-400 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+        class="group mt-6 inline-flex items-center gap-3 rounded-md border border-(color:--border-color) px-4 py-2 text-sm font-medium text-(color:--heading-color) transition hover:bg-(color:--surface-color)"
     >
         {{-- Folder icon: closed folder when hidden, open folder when shown --}}
         <svg class="size-5 transition-transform duration-300 group-hover:-rotate-6 motion-reduce:transition-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">

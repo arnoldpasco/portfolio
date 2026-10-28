@@ -18,7 +18,7 @@
     {{-- Soft highlight box that fades in behind the row on hover (desktop only, decorative) --}}
     <div
         aria-hidden="true"
-        class="absolute -inset-x-4 -inset-y-4 hidden rounded-md transition duration-300 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover/item:bg-slate-100/70 dark:lg:group-hover/item:bg-slate-800/50"
+        class="absolute -inset-x-4 -inset-y-4 hidden rounded-md bg-(color:--surface-color) opacity-0 transition duration-300 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover/item:opacity-60"
     ></div>
 
     <div class="relative sm:grid sm:grid-cols-8 sm:gap-8 md:gap-4">
@@ -32,12 +32,12 @@
                     width="200"
                     height="125"
                     loading="lazy"
-                    class="aspect-video w-full rounded border-2 border-slate-300/60 object-cover dark:border-slate-700"
+                    class="aspect-video w-full rounded border-2 border-(color:--border-color) object-cover"
                 >
             @else
                 <div
                     aria-hidden="true"
-                    class="flex aspect-video w-full items-center justify-center rounded border-2 border-slate-300/60 bg-gradient-to-br from-slate-200 to-slate-100 text-xs font-medium text-slate-500 dark:border-slate-700 dark:from-slate-800 dark:to-slate-900"
+                    class="flex aspect-video w-full items-center justify-center rounded border-2 border-(color:--border-color) bg-(color:--surface-color) text-xs font-medium text-(color:--muted-color)"
                 >
                     Screenshot
                 </div>
@@ -54,14 +54,14 @@
             >
                 <span class="flex items-start justify-between gap-4">
                     {{-- Title takes the accent color while the project is hovered (desktop only) --}}
-                    <span class="font-medium leading-snug text-slate-900 transition-colors duration-300 motion-reduce:transition-none lg:group-hover/item:text-(--accent-color) dark:text-slate-200">
+                    <span class="font-medium leading-snug text-(color:--heading-color) transition-colors duration-300 motion-reduce:transition-none lg:group-hover/item:text-(color:--accent-color)">
                         {{ $title }}
                     </span>
 
                     {{-- Arrow turns upside down while the project is open.
                          While closed, it nudges down a little when the project is hovered --}}
                     <svg
-                        class="mt-1 size-4 shrink-0 text-slate-500 transition-transform duration-300 motion-reduce:transition-none"
+                        class="mt-1 size-4 shrink-0 text-(color:--muted-color) transition-transform duration-300 motion-reduce:transition-none"
                         :class="isOpen ? 'rotate-180' : 'lg:group-hover/item:translate-y-0.5'"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
                     >
@@ -94,7 +94,7 @@
                                 href="{{ $liveUrl }}"
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                class="group/link inline-flex items-center gap-1 text-slate-900 transition-colors hover:text-(--accent-color) focus-visible:text-(--accent-color) dark:text-slate-200"
+                                class="group/link inline-flex items-center gap-1 text-(color:--heading-color) transition-colors hover:text-(color:--accent-color) focus-visible:text-(color:--accent-color)"
                             >
                                 <span class="link-underline">Live site</span>
                                 <span class="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true">&#8599;</span>
@@ -108,7 +108,7 @@
                                 href="{{ $githubUrl }}"
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                class="group/link inline-flex items-center gap-1 text-slate-900 transition-colors hover:text-(--accent-color) focus-visible:text-(--accent-color) dark:text-slate-200"
+                                class="group/link inline-flex items-center gap-1 text-(color:--heading-color) transition-colors hover:text-(color:--accent-color) focus-visible:text-(color:--accent-color)"
                             >
                                 <span class="link-underline">GitHub</span>
                                 <span class="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true">&#8599;</span>

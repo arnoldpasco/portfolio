@@ -15,6 +15,10 @@ class SiteSetting extends Model
         'spotlight' => '--spotlight-base',
         'background' => '--page-background',
         'text' => '--page-text',
+        'heading' => '--heading-color',
+        'muted' => '--muted-color',
+        'border' => '--border-color',
+        'surface' => '--surface-color',
     ];
 
     // Only plain six-digit hex colors are accepted, which also blocks any CSS injection

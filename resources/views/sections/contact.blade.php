@@ -73,7 +73,7 @@
     <button
         type="submit"
         :disabled="status === 'sending'"
-        class="group inline-flex items-center gap-2 rounded-md border border-slate-400 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 disabled:cursor-wait disabled:opacity-60 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+        class="group inline-flex items-center gap-2 rounded-md border border-(color:--border-color) px-4 py-2 text-sm font-medium text-(color:--heading-color) transition hover:bg-(color:--surface-color) disabled:cursor-wait disabled:opacity-60"
     >
         <span x-text="status === 'sending' ? 'Sending...' : 'Send message'"></span>
         <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
@@ -81,7 +81,7 @@
 
     {{-- aria-live makes screen readers announce whichever message appears --}}
     <div aria-live="polite">
-        <p x-show="status === 'success'" x-cloak x-transition class="text-sm text-slate-900 dark:text-slate-200">
+        <p x-show="status === 'success'" x-cloak x-transition class="text-sm text-(color:--heading-color)">
             Thanks! Your message is on its way. I'll reply soon.
         </p>
         <p x-show="status === 'error'" x-cloak x-transition x-text="errorMessage" class="text-sm text-red-600 dark:text-red-400"></p>

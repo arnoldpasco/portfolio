@@ -19,11 +19,11 @@
     {{-- Soft highlight box that fades in behind the row on hover (desktop only, decorative) --}}
     <div
         aria-hidden="true"
-        class="absolute -inset-x-4 -inset-y-4 hidden rounded-md transition duration-300 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover/item:bg-slate-100/70 dark:lg:group-hover/item:bg-slate-800/50"
+        class="absolute -inset-x-4 -inset-y-4 hidden rounded-md bg-(color:--surface-color) opacity-0 transition duration-300 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover/item:opacity-60"
     ></div>
 
     <div class="relative sm:grid sm:grid-cols-8 sm:gap-8 md:gap-4">
-        <p class="mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">
+        <p class="mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-(color:--muted-color) sm:col-span-2">
             {{ $dates }}
         </p>
 
@@ -37,14 +37,14 @@
             >
                 <span class="flex items-start justify-between gap-4">
                     {{-- Title takes the accent color while the row is hovered (desktop only) --}}
-                    <span class="font-medium leading-snug text-slate-900 transition-colors duration-300 motion-reduce:transition-none lg:group-hover/item:text-(--accent-color) dark:text-slate-200">
+                    <span class="font-medium leading-snug text-(color:--heading-color) transition-colors duration-300 motion-reduce:transition-none lg:group-hover/item:text-(color:--accent-color)">
                         {{ $jobTitle }} &middot; {{ $company }}
                     </span>
 
                     {{-- Arrow turns upside down while the row is open (:class adds rotate-180 when isOpen).
                          While closed, it nudges down a little when the row is hovered, as a hint that it opens --}}
                     <svg
-                        class="mt-1 size-4 shrink-0 text-slate-500 transition-transform duration-300 motion-reduce:transition-none"
+                        class="mt-1 size-4 shrink-0 text-(color:--muted-color) transition-transform duration-300 motion-reduce:transition-none"
                         :class="isOpen ? 'rotate-180' : 'lg:group-hover/item:translate-y-0.5'"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
                     >

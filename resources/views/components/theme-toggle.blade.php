@@ -11,7 +11,7 @@
     "
     {{-- :aria-label: text for screen readers that changes with the state --}}
     :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-    class="rounded-full p-2 text-slate-500 transition hover:bg-slate-200 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+    class="rounded-full p-2 text-(color:--muted-color) transition hover:bg-(color:--surface-color) hover:text-(color:--heading-color)"
 >
     {{-- Sun icon: shown in dark mode (click to go light) --}}
     <svg x-show="isDark" x-cloak xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

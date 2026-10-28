@@ -25,7 +25,7 @@
             type="button"
             @click="isExpanded = !isExpanded"
             :aria-expanded="isExpanded"
-            class="group mt-4 inline-flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-slate-200"
+            class="group mt-4 inline-flex items-center gap-2 text-sm font-medium text-(color:--heading-color)"
         >
             {{-- x-text swaps the label depending on the state --}}
             <span x-text="isExpanded ? 'Read less' : 'Read more'"></span>

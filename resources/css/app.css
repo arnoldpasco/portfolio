@@ -37,13 +37,21 @@ html {
    --accent-color     hover color for titles and links
    --spotlight-base   color of the cursor glow (its strength is set below)
    --page-background  page background
-   --page-text        main body text */
+   --page-text        main body text and chip text
+   --heading-color    name, role, titles, active nav item, button text
+   --muted-color      dates, inactive nav items, icons, placeholders
+   --border-color     borders of buttons, fields and thumbnails; the nav lines
+   --surface-color    hover boxes, chip background, button hover background */
 :root {
     --accent-color: #0d9488;
     --spotlight-base: #3b82f6;
     --spotlight-color: color-mix(in srgb, var(--spotlight-base) 10%, transparent);
     --page-background: #ffffff;
     --page-text: #334155;
+    --heading-color: #0f172a;
+    --muted-color: #64748b;
+    --border-color: #94a3b8;
+    --surface-color: #f1f5f9;
 }
 
 :root.dark {
@@ -52,6 +60,10 @@ html {
     --spotlight-color: color-mix(in srgb, var(--spotlight-base) 15%, transparent);
     --page-background: #0f172a;
     --page-text: #94a3b8;
+    --heading-color: #e2e8f0;
+    --muted-color: #64748b;
+    --border-color: #475569;
+    --surface-color: #1e293b;
 }
 
 /* ---------- Cursor spotlight (Phase 3A) ---------- */

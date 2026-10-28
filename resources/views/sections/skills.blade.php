@@ -3,7 +3,7 @@
 <div class="space-y-8">
     @foreach ($skillGroups as $groupName => $groupSkills)
         <div>
-            <h3 class="mb-3 text-sm font-semibold text-slate-900 dark:text-slate-200">
+            <h3 class="mb-3 text-sm font-semibold text-(color:--heading-color)">
                 {{ $groupName }}
             </h3>
 

@@ -21,10 +21,10 @@
             {{-- LEFT COLUMN: stays in place on desktop while the right side scrolls --}}
             <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
                 <div>
-                    <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl dark:text-slate-100">
+                    <h1 class="text-4xl font-bold tracking-tight text-(color:--heading-color) sm:text-5xl">
                         {{ $siteSetting->name }}
                     </h1>
-                    <h2 class="mt-3 text-md font-light tracking-tight text-slate-800 sm:text-xl dark:text-slate-200">
+                    <h2 class="mt-3 text-md font-light tracking-tight text-(color:--heading-color) sm:text-xl">
                         {{ $siteSetting->role }}
                     </h2>
 
@@ -36,7 +36,7 @@
                     {{-- Downloads the resume PDF from private storage (Phase 5B) --}}
                     <a
                         href="{{ route('resume.download') }}"
-                        class="group mt-10 inline-flex items-center gap-2 rounded-md border border-slate-400 px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                        class="group mt-10 inline-flex items-center gap-2 rounded-md border border-(color:--border-color) px-4 py-2 text-sm font-medium text-(color:--heading-color) transition hover:bg-(color:--surface-color)"
                     >
                         Download Resume
                         <span class="transition-transform group-hover:translate-y-0.5" aria-hidden="true">&darr;</span>
